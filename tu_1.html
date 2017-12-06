@@ -1,0 +1,91 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta  http-equiv="X-UA-Compatible"  content="IE=edge"  >
+  <meta  name="viewport"  content="width=device-width, initial-scale=1">
+  <meta  http-equiv="Pragma"  content="no-cache">
+  <meta http-equiv="Cache-Control"  content="no-cache">
+  <meta  http-equiv="Expires"  content="0">
+  <title>TUTORIAL 1</title>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="css/joint.min.css"
+  />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="css/contact_lists.css?v=20170628"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="css/jquery-ui.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="css/bootstrap.min.css"
+>
+<!-- .minのほうはテーブルのcontextmenuが反応しなくなる -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="css/handsontable.full.css?v=20170531"
+>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="css/pikaday/pikaday.css"
+>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="css/summernote.css?v=20170531"
+>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="css/jquery.contextMenu.min.css"
+>
+<script src="lib/jquery.js"></script>
+<script src="lib/jquery-ui.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/lodash.js"></script>
+<script src="lib/backbone.js"></script>
+<script src="lib/joint.min.js"></script>
+<script src="lib/moment/moment.js"></script>
+<script src="lib/summernote.min.js?v=20170531"></script>
+<script src="lib/summernote-ja-JP.min.js?v=20170531"></script>
+<script src="lib/jquery.contextMenu.min.js"></script>
+<script src="lib/jquery.ui.position.min.js"></script>
+<script src="lib/jquery.simple-sidebar.min.js"></script>
+<script src="js/contact_lists_model.js?v=20170628"></script>
+<script src="js/contact_lists_rest.js?v=20170712"></script>
+</head>
+<body>
+  <div id="paper">
+  </div>
+  <script type="text/javascript">
+  $(function() {
+    graph = new joint.dia.Graph;
+    paper = new joint.dia.Paper({
+  　  el: $('#paper'),
+  　　width: 800,
+     height: 800,
+     gridSize: 100,
+     model: graph
+    });
+
+    // 初期から出ているbox
+    var el1 = new joint.shapes.html.Element({
+      position: { x: 80, y: 80 },
+      size: { width: 170, height: 80 },
+      divName: 'Atrae',
+      isCompany: true
+    });
+
+
+  </script>
+</body>
+</html>
