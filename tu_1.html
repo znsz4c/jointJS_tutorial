@@ -64,28 +64,54 @@
 <script src="js/contact_lists_rest.js?v=20170712"></script>
 </head>
 <body>
-  <div id="paper">
+  <div id="paper_1"></div>
+  <div class="box_setting">
+    <button id="button_1">Add box</button>
+    <input id="in_1"></input>
   </div>
+  <button id="button_JSON">update JSON</button>
+  <div id="JSONspace"></div>
+
   <script type="text/javascript">
-  $(function() {
-    graph = new joint.dia.Graph;
-    paper = new joint.dia.Paper({
-  　  el: $('#paper'),
-  　　width: 800,
-     height: 800,
-     gridSize: 100,
-     model: graph
-    });
-
-    // 初期から出ているbox
-    var el1 = new joint.shapes.html.Element({
-      position: { x: 80, y: 80 },
-      size: { width: 170, height: 80 },
-      divName: 'Atrae',
-      isCompany: true
-    });
-
-
-  </script>
-</body>
+  var graph =new joint.dia.Graph;
+  var paper=new joint.dia.Paper({
+    el:$('#paper_1'),
+    width:600,
+    height:200,
+    model:graph,
+    gridsize:1
+  });
+  //箱作成
+  var rect=new Array();
+  var link=new Array();
+/*
+  var link= new joint.dia.Link({
+    source: { id: rect1.id },
+    target: { id: rect2.id }
+  });
+  graph.addCells([rect1,rect2,link]);
+*/
+  //button_1を押すとボックスが増える
+  $('#button_1').on('click',function(){
+    rect[rect.length]= new joint.shapes.devs.Model({
+      position: { x: 50, y: 50 },
+      size: { width: 90, height: 90 },
+      inPorts: ['in1','in2'],
+      outPorts: ['out'],
+      ports: {
+        groups: {
+          'in': {attrs: {'.port-body': {fill: '#00FF85'}}},
+          'out': {attrs: {'.port-body': {fill: '#E74C3C'}}}
+        }
+      },
+      attrs: {'.label': { text: $('#in_1').val(), 'ref-x': .5, 'ref-y': .2 },
+      rect: { fill: '#2ECC71' }
+    }
+  });
+  graph.addCells([rect[rect.length-1]]);
+});
+$('#button_JSON').on('click',function(){
+  $('#JSONspace').text(JSON.stringify(graph.toJSON()));
+});
+</script>
 </html>
